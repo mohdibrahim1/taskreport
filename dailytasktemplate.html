@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+            margin:0px 50px 50px 50px;
+            /*width: 1748px;*/
+        }
+        h2{
+            font-size: 24px;
+            text-align: right;
+        }
+ table { 
+ /* border-collapse: collapse;*/
+ border: 1px solid #eee;
+ border-spacing: 0px !important;
+
+}
+td{
+  border-bottom: 1px solid #eee;
+padding-left: 40px !important;
+}
+th{
+padding-left: 40px !important;
+}
+
+td, th {
+ /* border: 1px solid #dddddd;*/
+  padding: 15px;
+  width: 560px;
+  text-align: left;
+
+}
+
+td{
+
+      height: 130px;
+     /*padding-bottom: 100px;*/
+     vertical-align: top;
+
+}
+
+ul li{
+    margin-top: 0px !important;
+}
+</style>
+<body>
+    <h2 id="date"></h2>
+    <table style="width:100%">
+		<tbody id="list">
+			<tr>
+				<th>SANJEEV</th>
+				<th>ABHISHEK</th>
+				<th>ZAKIR</th>
+			</tr>
+			<tr>
+				<td>
+					<ul>
+						<li>HDFC</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>CIPLA </li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>DEMO QA</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>SUJIT</th>
+				<th>SHOAIB</th>
+				<th>NOTES</th>
+			</tr>
+			<tr>
+				<td>
+					<ul>
+						<li>HDFC</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>CIPLA</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>DEMO QA</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+<script>
+    const d = new Date();
+		var n = d.toDateString();
+		document.getElementById("date").innerHTML = n;
+</script>
+</html>

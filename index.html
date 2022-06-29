@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Table</title>
+	<style>
+		/* @page { size: A5 } */
+	body{
+            margin:50px;
+            /*width: 1748px;*/
+        }
+        h2{
+            font-size: 24px;
+            text-align: right;
+        }
+ table { 
+ /* border-collapse: collapse;*/
+ border: 1px solid black;
+ border-spacing: 0px !important;
+
+}
+td{
+  border-bottom: 1px solid black;
+padding-left: 40px !important;
+}
+th{
+padding-left: 40px !important;
+}
+
+td, th {
+ /* border: 1px solid #dddddd;*/
+  padding: 15px;
+  width: 560px;
+  text-align: left;
+
+}
+
+td{
+
+      height: 130px;
+     /*padding-bottom: 100px;*/
+     vertical-align: top;
+
+}
+/*th{
+  background-color: #f7f7f7;
+}*/
+ul li{
+    margin-top: 0px !important;
+}
+
+	</style>
+
+
+
+</head>
+
+
+<body>
+	<h2 id="date"></h2>
+
+	<table style="width:100%">
+		<tbody id="list">
+			<!-- <tr>
+				<th>SANJEEV</th>
+				<th>ABHISHEK</th>
+				<th>ZAKIR</th>
+			</tr>
+			<tr>
+				<td>
+					<ul>
+						<li>HDFC</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>CIPLA </li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>DEMO QA</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>SUJIT</th>
+				<th>SHOAIB</th>
+				<th>NOTES</th>
+			</tr>
+			<tr>
+				<td>
+					<ul>
+						<li>HDFC</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>CIPLA</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>DEMO QA</li>
+					</ul>
+				</td>
+			</tr> -->
+		</tbody>
+	</table>
+	<br>
+	<table>
+		<tbody id="list1">
+
+		</tbody>
+	</table>
+	<script>
+		const d = new Date();
+		var n = d.toDateString();
+		document.getElementById("date").innerHTML = n;
+		var records = [];
+		const getData = async () => {
+			// alert('hello world')
+			await fetch('http://localhost:3005/DailyTaskRecords')
+				.then(response => response.json())
+				.then(data => {
+					console.log("data: ", data);
+					datalist(data)
+				});
+		}
+
+		function datalist(data) {
+
+			var renderdata = "";
+			var renderdata1 = "";
+			if (data.length === 0) {
+				return document.getElementById("list").innerHTML = "<h1>Data not found</h1>";
+			}
+			else {
+				var sanjeevtask = "";
+				var abhishekhtask = "";
+				var zakirtask = "";
+				var sujeettask = "";
+				var shoiabtask = "";
+				var ahmedtask = "";
+				var aveshtask = "";
+				var sobantask = "";
+				var ibrahimtask = "";
+				var shaziyatask = "";
+
+
+				for (i = 0; i < data.length; i++) {
+					var store = data[i]
+					console.log("store:", store)
+					switch(data[i].Username){
+						case "Ashraf Ahmed":
+							sanjeevtask = data[i].Task;
+						break
+						default:
+							return	
+					}
+					// if (store.Username == "Ashraf Ahmed") {
+					// 	SANJEEVTASK.push(store.Task);
+					// }
+				}
+				var sanjeevli = "";
+				var abhishekhli = "";
+				var zakirli = "";
+				var sujeetli = "";
+				var shoiabli = "";
+				var ahmedrazali = "";
+				var aveshli = "";
+				var sobanli = "";
+				var ibrahimli = "";
+				var shaziyali = "";
+
+				for (let i = 0; i < sanjeevtask.length; i++) {
+					sanjeevli +=   "<li>" + sanjeevtask[i] + "</li>"
+				}
+
+				renderdata +=
+					"<div>" +
+						"<tr>" +
+							"<th>" + "SANJEEV" + "</th>" +
+							"<th>" + "ABHISHEK" + "</th>" +
+							"<th>" + "ZAKIR" + "</th>" +
+						"</tr>" +
+						"<tr>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + sanjeevtask + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+								"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+						"</tr>" +
+						"<tr>" +
+							"<th>" + "SUJEET" + "</th>" +
+							"<th>" + "SHOAIB" + "</th>" +
+							"<th>" + "NOTE" + "</th>" +
+						"</tr>" +
+						"<tr>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+						"</tr>" +
+					"</div>" 
+
+					renderdata1 += "<div>" +
+						"<tr>" +
+							"<th>" + "AHMED RAZA" + "</th>" +
+							"<th>" + "AVESH" + "</th>" +
+							"<th>" + "SOBAN" + "</th>" +
+						"</tr>" +
+						"<tr>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+						"</tr>" +
+						"<tr>" +
+							"<th>" + "IBRAHIM" + "</th>" +
+							"<th>" + "SHAZIYA" + "</th>" +
+							"<th>" + "QUERIES" + "</th>" +
+						"</tr>" +
+						"<tr>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+							"<td>" +
+								"<ul>" +
+									"<li>" + "" + "</li>" +
+								"</ul>" +
+							"</td>" +
+						"</tr>"
+					"</div>"
+
+				document.getElementById("list").innerHTML = renderdata;
+				document.getElementById("list1").innerHTML = renderdata1;
+
+			}
+		}
+
+		// }
+
+		getData();
+
+
+
+	</script>
+</body>
+
+</html>
